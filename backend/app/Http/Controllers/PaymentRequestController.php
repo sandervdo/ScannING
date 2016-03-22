@@ -6,6 +6,7 @@ use App\PaymentRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Validator;
 
 class PaymentRequestController extends Controller
 {
@@ -37,9 +38,24 @@ class PaymentRequestController extends Controller
      */
     public function store(Request $request)
     {
-//        $validator = \Validator::make($request->all(), function() {
-//
-//        });
+        $validator = Validator::make($request->all(), [
+            'description' => 'required',
+            'amount' => 'required',
+            'requester' => 'required|exists:clients,id',
+        ]);
+
+        if ($validator->fails()) {
+            return view('welcome')->with('errors', $validator->errors());
+        }
+
+        $paymentRequest = PaymentRequest::create([
+            'description' => $request->get('description'),
+            'amount' => $request->get('amount'),
+            'requester' => $request->get('requester'),
+            'token' => "random",
+        ]);
+
+        return $paymentRequest;
     }
 
     /**
