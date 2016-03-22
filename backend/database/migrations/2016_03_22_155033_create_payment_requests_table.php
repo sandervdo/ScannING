@@ -14,6 +14,10 @@ class CreatePaymentRequestsTable extends Migration
     {
         Schema::create('payment_requests', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('description');
+            $table->float('amount');
+            $table->integer('requester')->unsigned();
+            $table->string('token');
             $table->timestamps();
         });
     }
