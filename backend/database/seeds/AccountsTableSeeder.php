@@ -15,5 +15,6 @@ class AccountsTableSeeder extends Seeder
         //     $c->account()->save(factory(App\Account::class)->make);
         // });
         factory(App\Client::class,10)->create();
+        factory(App\PaymentRequest::class, 10)->create();
     }
 }

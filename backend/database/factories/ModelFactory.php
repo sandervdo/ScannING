@@ -11,14 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
-    ];
-});
+use App\Client;
 
 $factory->define(App\Account::class, function(Faker\Generator $faker) {
   return [
@@ -38,13 +31,11 @@ $factory->define(App\Client::class, function(Faker\Generator $faker) {
 });
 
 $factory->define(App\PaymentRequest::class, function(Faker\Generator $faker) {
-    $ranKey = str_random(60);
     return [
-        'name' => $faker->name,
         'description' => $faker->sentence,
         'amount' => $faker->numberBetween(1, 5000),
-        'requester' => $faker->name,
-        'token' => "ScannING".ranKey,
+        'requester' => Client::orderByRaw("RAND()")->first()->id,
+        'token' => "ScannING" . str_random(60),
         'created_at' => $faker->dateTimeThisMonth
     ];
 });
