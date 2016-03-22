@@ -13,3 +13,4 @@ storage/
 .env
 .env.example
 _ide_helper.php
+backend/.idea/

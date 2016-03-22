@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PaymentRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -49,7 +50,11 @@ class PaymentRequestController extends Controller
      */
     public function show($id)
     {
-        //
+        $token = PaymentRequest::where('token', $id)->first();
+        if($token == null) {
+            return ['success'=>0];
+        }
+        return ['success'=>1, $token];
     }
 
     /**
@@ -84,5 +89,12 @@ class PaymentRequestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function generateToken()
+    {
+        $ranKey = str_random(60);
+        $retString = "ScannING".ranKey;
+        return retString;
     }
 }
