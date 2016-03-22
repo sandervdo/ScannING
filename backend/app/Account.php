@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Account extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = ['owner', 'iban', 'balance'];
 }
