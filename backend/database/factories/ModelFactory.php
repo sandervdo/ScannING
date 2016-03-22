@@ -36,3 +36,16 @@ $factory->define(App\Client::class, function(Faker\Generator $faker) {
       'avatar' => null
   ];
 });
+
+$factory->define(App\PaymentRequest::class, function(Faker\Generator $faker) {
+    $ranKey = str_random(60);
+    return [
+        'name' => $faker->name,
+        'description' => $faker->sentence,
+        'amount' => $faker->numberBetween(1, 5000),
+        'requester' => $faker->name,
+        'token' => "ScannING".ranKey,
+        'created_at' => $faker->dateTimeThisMonth
+    ];
+});
+
