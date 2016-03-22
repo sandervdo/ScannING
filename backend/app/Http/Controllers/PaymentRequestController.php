@@ -55,7 +55,7 @@ class PaymentRequestController extends Controller
             'description' => $request->get('description'),
             'amount' => $request->get('amount'),
             'requester' => $request->get('requester'),
-            'token' => "random",
+            'token' => $this->generateToken(),
         ]);
 
         return $paymentRequest;
@@ -152,9 +152,7 @@ class PaymentRequestController extends Controller
 
     private function generateToken()
     {
-        $ranKey = str_random(60);
-        $retString = "ScannING".ranKey;
-        return retString;
+        return $retString = "ScannING" . str_random(60);
     }
 
     private function deleteToken($id) {
