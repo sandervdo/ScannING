@@ -10,4 +10,9 @@ class Client extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'account', 'avatar'];
+
+    public function account()
+    {
+      return $this->hasOne('App\Account');
+    }
 }

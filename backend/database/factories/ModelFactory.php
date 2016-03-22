@@ -19,3 +19,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Account::class, function(Faker\Generator $faker) {
+  return [
+      'owner' => $faker->name,
+      'iban' => $faker->numerify('NL##INGB##########'),
+      'balance' => $faker->randomFloat(2)
+  ];
+});
+
+
+$factory->define(App\Client::class, function(Faker\Generator $faker) {
+  return [
+      'name' => $faker->name,
+      'avatar' => ''
+  ];
+});
