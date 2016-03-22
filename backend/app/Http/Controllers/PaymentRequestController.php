@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\PaymentRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Requests;
 use Validator;
 
 class PaymentRequestController extends Controller
 {
+    use SoftDeletes;
     /**
      * Display a listing of the resource.
      *
@@ -93,7 +96,47 @@ class PaymentRequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'token' => 'required',
+            'confirm' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return view('welcome')->with('errors', $validator->errors());
+        }
+
+        $payrequest = PaymentRequest::where('token', $id)->first();
+
+        if($payrequest == null) {
+            // TOOD: Upate for payrequest
+            return ['confirm'=>false];
+        }
+
+        if ($request->get('confirm') == false) {
+            $payrequest->confirmed = false;
+            $payrequest->save();
+            $this->deleteToken($id);
+            return ['success' => true];
+        }
+
+        // scenario confirm == true
+        $account = $payrequest->requester;
+        if(checkbalance($payrequest, $account) == true) {
+            $account->balance -= $payrequest->amount;
+            $account->save();
+
+            $payrequest->confirmed = true;
+            $payrequest->save();
+
+            $this->deleteToken($id);
+            return ['success' => true];
+        }
+
+        // insuficient balance
+        $payrequest->confirmed = false;
+        $payrequest->save();
+        return ['success' => false];
+
     }
 
     /**
@@ -112,5 +155,16 @@ class PaymentRequestController extends Controller
         $ranKey = str_random(60);
         $retString = "ScannING".ranKey;
         return retString;
+    }
+
+    private function deleteToken($id) {
+        PaymentRequest::where('token', $id)->softDeletes();
+    }
+
+    private function balanceChecker($request, $account) {
+        if($request->amount > $account->balance) {
+            return false;
+        }
+        return true;
     }
 }
