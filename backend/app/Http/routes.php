@@ -26,6 +26,19 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group([], function () {
+    /*
+     * API Functionalities
+     */
+    Route::group(['prefix' => '/api'], function () {
+        /*
+         * 
+         */
+        Route::resource('client', 'ClientController');
+
+        /*
+         *
+         */
+        Route::resource('payment-request', 'PaymentRequestController');
+    });
 });
