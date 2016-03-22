@@ -18,6 +18,7 @@ class CreateClientsTable extends Migration
             $table->integer('account')->unsigned();
             $table->binary('avatar');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

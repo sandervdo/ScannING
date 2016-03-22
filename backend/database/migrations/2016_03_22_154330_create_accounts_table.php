@@ -18,6 +18,7 @@ class CreateAccountsTable extends Migration
             $table->string('iban');
             $table->float('balance');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

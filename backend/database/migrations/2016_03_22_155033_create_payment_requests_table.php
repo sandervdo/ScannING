@@ -19,6 +19,7 @@ class CreatePaymentRequestsTable extends Migration
             $table->integer('requester')->unsigned();
             $table->string('token');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
