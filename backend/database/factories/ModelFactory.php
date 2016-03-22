@@ -32,6 +32,7 @@ $factory->define(App\Account::class, function(Faker\Generator $faker) {
 $factory->define(App\Client::class, function(Faker\Generator $faker) {
   return [
       'name' => $faker->name,
-      'avatar' => ''
+      'account' => factory(App\Account::class)->create()->id,
+      'avatar' => null
   ];
 });
