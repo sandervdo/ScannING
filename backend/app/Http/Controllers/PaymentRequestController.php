@@ -160,8 +160,9 @@ class PaymentRequestController extends Controller
 
         if ($validator->fails()) { return view('welcome')->with('errors', $validator->errors()); }
 
-        $pr = PaymentRequest::where('token', $request->get('token'));
-
+        $pr = PaymentRequest::where('token', $request->get('token'))->first();
+        $pr->client_id = Account::where('iban', $request->get('iban'))->first()->client->id;
+        $pr->save();
         return $pr;
     }
 
