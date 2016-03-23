@@ -44,13 +44,13 @@ class PaymentRequestController extends Controller
         $validator = Validator::make($request->all(), [
             'description'   => 'required',
             'amount'        => 'required',
-            'iban'          => 'required|exists:accounts,iban',
+            'iban'          => 'required',
         ]);
 
         if ($validator->fails()) {
-            return view('welcome')->with('errors', $validator->errors());
+            return $validator->errors();
         }
-
+        
         $paymentRequest = PaymentRequest::create([
             'description'   => $request->get('description'),
             'amount'        => $request->get('amount'),
@@ -108,7 +108,7 @@ class PaymentRequestController extends Controller
             'confirm'   => 'required'
         ]);
 
-        if ($validator->fails()) return view('welcome')->with('errors', $validator->errors());
+        if ($validator->fails()) return $validator->errors();
 
         $payrequest = PaymentRequest::where('token', $request->get('token'))->first();
 
@@ -163,10 +163,10 @@ class PaymentRequestController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'token' => 'required|exists:payment_requests,token',
-            'iban'  => 'required|max:34|exists:accounts,iban'
+            'iban'  => 'required|max:34'
         ]);
 
-        if ($validator->fails()) { return view('welcome')->with('errors', $validator->errors()); }
+        if ($validator->fails()) { return $validator->errors(); }
 
         $pr = PaymentRequest::where('token', $request->get('token'))->first();
         $pr->client_id = Account::where('iban', $request->get('iban'))->first()->client->id;

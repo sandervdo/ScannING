@@ -59,13 +59,20 @@
                             </div>
                         </a>
                     </div>
-                    <button type="button" class="btn btn-info pull-right" id="checkout" name="button">Proceed to Checkout</button>
+                    <button type="button" class="btn btn-info pull-right" id="checkout" name="button" onclick="checkoutClick()">Proceed to Checkout</button>
                 </div>
                 <div class="col-sm-6">
                     <div id="qrcode"></div>
                 </div>
             </div>
         </div>
+
+        @if(isset($errors) && count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach($errors as $error)
+                @endforeach
+            </div>
+        @endif
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
