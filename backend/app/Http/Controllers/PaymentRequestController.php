@@ -70,6 +70,7 @@ class PaymentRequestController extends Controller
     public function show($id)
     {
         $token = PaymentRequest::where('token', $id)->first();
+        dd($token);
         if ($token == null) return ['success' => 0];
 
         $token->success = 1;
@@ -181,7 +182,7 @@ class PaymentRequestController extends Controller
     }
 
     private function deleteToken($id) {
-        PaymentRequest::where('token', $id)->delete();
+//        PaymentRequest::where('token', $id)->delete();
     }
 
     private function checkBalance(PaymentRequest $request, $account) {
