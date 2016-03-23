@@ -121,7 +121,7 @@ class PaymentRequestController extends Controller
         if ($request->get('confirm') == false) {
             $payrequest->confirmed = false;
             $payrequest->save();
-            $this->deleteToken($request->get('token'));
+//            $this->deleteToken($request->get('token'));
             return ['success' => true];
         }
 
@@ -135,7 +135,7 @@ class PaymentRequestController extends Controller
             $payrequest->confirmed = true;
             $payrequest->save();
 
-            $this->deleteToken($request->get('token'));
+//            $this->deleteToken($request->get('token'));
             return ['success' => true];
         }
 
