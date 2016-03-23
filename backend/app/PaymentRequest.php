@@ -10,4 +10,8 @@ class PaymentRequest extends Model
     use SoftDeletes;
 
     protected $fillable = ['description', 'amount', 'requester', 'token'];
+
+    public function requester() {
+        return $this->belongsTo('App\Client');
+    }
 }

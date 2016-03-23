@@ -12,7 +12,6 @@ use Validator;
 
 class PaymentRequestController extends Controller
 {
-    use SoftDeletes;
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +53,7 @@ class PaymentRequestController extends Controller
         $paymentRequest = PaymentRequest::create([
             'description' => $request->get('description'),
             'amount' => $request->get('amount'),
-            'requester' => $request->get('requester'),
+            'requester_id' => $request->get('requester'),
             'token' => $this->generateToken(),
         ]);
 
@@ -120,8 +119,9 @@ class PaymentRequestController extends Controller
         }
 
         // scenario confirm == true
-        $account = $payrequest->requester;
-        if(checkbalance($payrequest, $account) == true) {
+        $account = Account::find($payrequest->requester->account_id);
+
+        if($this->checkBalance($payrequest, $account) == true) {
             $account->balance -= $payrequest->amount;
             $account->save();
 
@@ -156,10 +156,10 @@ class PaymentRequestController extends Controller
     }
 
     private function deleteToken($id) {
-        PaymentRequest::where('token', $id)->softDeletes();
+        PaymentRequest::where('token', $id)->delete();
     }
 
-    private function balanceChecker($request, $account) {
+    private function checkBalance(PaymentRequest $request, $account) {
         if($request->amount > $account->balance) {
             return false;
         }

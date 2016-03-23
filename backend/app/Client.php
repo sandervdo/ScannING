@@ -11,8 +11,8 @@ class Client extends Model
 
     protected $fillable = ['name', 'account', 'avatar'];
 
-    public function account()
-    {
-      return $this->hasOne('App\Account');
-    }
+//    public function account()
+//    {
+//      return $this->hasOne('App\Account', 'id', 'account_id');
+//    }
 }

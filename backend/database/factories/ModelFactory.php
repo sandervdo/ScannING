@@ -25,7 +25,7 @@ $factory->define(App\Account::class, function(Faker\Generator $faker) {
 $factory->define(App\Client::class, function(Faker\Generator $faker) {
   return [
       'name' => $faker->name,
-      'account' => factory(App\Account::class)->create()->id,
+      'account_id' => factory(App\Account::class)->create()->id,
       'avatar' => null
   ];
 });
@@ -34,7 +34,7 @@ $factory->define(App\PaymentRequest::class, function(Faker\Generator $faker) {
     return [
         'description' => $faker->sentence,
         'amount' => $faker->numberBetween(1, 5000),
-        'requester' => Client::orderByRaw("RAND()")->first()->id,
+        'requester_id' => Client::orderByRaw("RAND()")->first()->id,
         'token' => "ScannING" . str_random(60),
         'created_at' => $faker->dateTimeThisMonth
     ];
