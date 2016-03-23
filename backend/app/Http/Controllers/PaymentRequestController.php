@@ -163,4 +163,8 @@ class PaymentRequestController extends Controller
         }
         return true;
     }
+
+    private function addTransaction(PaymentRequest $request) {
+
+    }
 }
