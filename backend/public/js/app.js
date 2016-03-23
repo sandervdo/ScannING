@@ -10,8 +10,9 @@ function poll() {
                 console.log('Waiting');
                 setTimeout(poll, 1000);
             } else if (client_id) {
-                $('#qrcode')[0].innerHTML = '<img src="https://faber.kuleuven.be/nl/onderwijs/Uploads/check-mark.png" width="100"/><br/>Payment approved!' +
-                    '<img src="'+data.client.avatar+'"/>';
+                $('#qrcode')[0].innerHTML =
+                    '<div class="alert alert-warning">Awaiting approval</div>' +
+                    '<div><img src="'+data.client.avatar+'"/><span>'+data.client.name+'</span></div>';
             }
         }
     });
