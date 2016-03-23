@@ -41,9 +41,9 @@ class PaymentRequestController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'description' => 'required',
-            'amount' => 'required',
-            'requester' => 'required|exists:clients,id',
+            'description'   => 'required',
+            'amount'        => 'required',
+            'iban'          => 'required|exists:accounts,iban',
         ]);
 
         if ($validator->fails()) {
@@ -51,10 +51,10 @@ class PaymentRequestController extends Controller
         }
 
         $paymentRequest = PaymentRequest::create([
-            'description' => $request->get('description'),
-            'amount' => $request->get('amount'),
-            'requester_id' => $request->get('requester'),
-            'token' => $this->generateToken(),
+            'description'   => $request->get('description'),
+            'amount'        => $request->get('amount'),
+            'requester_id'  => Account::where('iban', $request->get('iban'))->first()->client->id,
+            'token'         => $this->generateToken(),
         ]);
 
         return $paymentRequest;
@@ -96,19 +96,17 @@ class PaymentRequestController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'token' => 'required',
-            'confirm' => 'required'
+            'token'     => 'required',
+            'confirm'   => 'required'
         ]);
 
-        if ($validator->fails()) {
-            return view('welcome')->with('errors', $validator->errors());
-        }
+        if ($validator->fails()) return view('welcome')->with('errors', $validator->errors());
 
         $payrequest = PaymentRequest::where('token', $id)->first();
 
         if($payrequest == null) {
             // TOOD: Update for payrequest
-            return ['confirm'=>false];
+            return ['success' => false];
         }
 
         if ($request->get('confirm') == false) {
@@ -135,7 +133,7 @@ class PaymentRequestController extends Controller
         // insuficient balance
         $payrequest->confirmed = false;
         $payrequest->save();
-        return ['success' => false];
+        return ['success' => false ];
 
     }
 
