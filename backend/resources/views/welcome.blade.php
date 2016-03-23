@@ -34,12 +34,17 @@
             .title {
                 font-size: 96px;
             }
+            .subtitle {
+                font-weight: bold;
+                font-size: 20px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">ScannING</div>
+                <div class="title">Scann<span style="color: #FF6501;">ING</span></div>
+                <div class="subtitle"><span style="color: #FF6501">Universal</span> payments on <span style="color: #FF6501;">any</span> platform</div>
                 @if(isset($errors) && count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>

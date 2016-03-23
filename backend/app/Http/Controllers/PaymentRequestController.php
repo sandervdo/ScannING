@@ -99,7 +99,9 @@ class PaymentRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $od) { return 'Nee'; }
+
+    public function confirm(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'token'     => 'required',
@@ -108,7 +110,7 @@ class PaymentRequestController extends Controller
 
         if ($validator->fails()) return view('welcome')->with('errors', $validator->errors());
 
-        $payrequest = PaymentRequest::where('token', $id)->first();
+        $payrequest = PaymentRequest::where('token', $request->get('token'))->first();
 
         if($payrequest == null) {
             // TOOD: Update for payrequest
@@ -118,7 +120,7 @@ class PaymentRequestController extends Controller
         if ($request->get('confirm') == false) {
             $payrequest->confirmed = false;
             $payrequest->save();
-            $this->deleteToken($id);
+            $this->deleteToken($request->get('token'));
             return ['success' => true];
         }
 
@@ -132,7 +134,7 @@ class PaymentRequestController extends Controller
             $payrequest->confirmed = true;
             $payrequest->save();
 
-            $this->deleteToken($id);
+            $this->deleteToken($request->get('token'));
             return ['success' => true];
         }
 

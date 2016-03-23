@@ -62,5 +62,6 @@ Route::group([], function () {
          */
         Route::resource('payment-request', 'PaymentRequestController');
         Route::post('payment-request/payment', 'PaymentRequestController@payment');
+        Route::post('payment-request/confirm', 'PaymentRequestController@confirm');
     });
 });
