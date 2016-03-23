@@ -5,15 +5,13 @@ function poll() {
         url: '/api/payment-request/' + token,
         type: 'GET',
         success : function(data) {
-            // console.log(data);
-            confirmed = data.client_id;
-            console.log(data.client_id);
-            if (confirmed == null) {
+            var client_id = data.client_id;
+            if (client_id == null) {
+                console.log('Waiting');
                 setTimeout(poll, 1000);
-            } else if (confirmed) {
-                console.log("Payment received!");
-            } else {
-                console.log("Something went wrong...");
+            } else if (client_id) {
+                $('#qrcode').innerHTML = '<img src="https://faber.kuleuven.be/nl/onderwijs/Uploads/check-mark.png" width="100"/><br/>Payment approved!' +
+                    '<img src="'+data.client.avatar+'"/>';
             }
         }
     });
