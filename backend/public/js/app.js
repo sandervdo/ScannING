@@ -9,10 +9,15 @@ function poll() {
             if (client_id == null) {
                 console.log('Waiting');
                 setTimeout(poll, 1000);
-            } else if (client_id) {
+            } else if (client_id && data.confirmed == null) {
                 $('#qrcode')[0].innerHTML =
-                    '<div class="alert alert-warning">Awaiting approval</div>' +
-                    '<div><img src="'+data.client.avatar+'"/><span>'+data.client.name+'</span></div>';
+                    '<div class="alert alert-warning">Awaiting approval. Please check your device.</div>' +
+                    '<div><img src="'+(data.client.avatar != null ? data.client.avatar : 'http://wiseheartdesign.com/images/articles/default-avatar.png')+'"/><br/><span>'+data.client.name+'</span></div>';
+                setTimeout(poll, 1000);
+            } else {
+                $('#qrcode')[0].innerHTML =
+                    '<div class="alert alert-'+(data.confirmed == 1 ? 'success' : 'danger')+'">'+(data.confirmed == 1 ? 'Payment approved!' : 'Payment rejected!')+'</div>' +
+                    '<div><img src="'+(data.client.avatar != null ? data.client.avatar : 'http://wiseheartdesign.com/images/articles/default-avatar.png')+'"/><br/><span>'+data.client.name+'</span></div>';
             }
         }
     });
