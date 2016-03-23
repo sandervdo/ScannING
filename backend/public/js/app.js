@@ -5,6 +5,7 @@ function poll() {
         url: '/api/payment-request/' + token,
         type: 'GET',
         success : function(data) {
+            console.log(data);
             console.log('client_id: ' + data.client_id + ' data.confirmed: ' + data.confirmed);
             if (data.client_id == null) {
                 console.log('Waiting');
