@@ -50,7 +50,7 @@ class PaymentRequestController extends Controller
         if ($validator->fails()) {
             return $validator->errors();
         }
-        
+
         $paymentRequest = PaymentRequest::create([
             'description'   => $request->get('description'),
             'amount'        => $request->get('amount'),

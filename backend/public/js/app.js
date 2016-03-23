@@ -5,11 +5,12 @@ function poll() {
         url: '/api/payment-request/' + token,
         type: 'GET',
         success : function(data) {
-            console.log(data);
-            confirmed = data.confirmed;
-            if (confirmed === null) {
-                setTimeout(poll, 500);
-            } else if (confirmed === 1) {
+            // console.log(data);
+            confirmed = data.client_id;
+            console.log(data.client_id);
+            if (confirmed == null) {
+                setTimeout(poll, 1000);
+            } else if (confirmed) {
                 console.log("Payment received!");
             } else {
                 console.log("Something went wrong...");
@@ -28,10 +29,8 @@ function checkoutClick() {
             "iban": "NL18INGB9771295162"
         },
         success: function (data) {
-            console.log(data);
             $('#qrcode').qrcode(data.token);
             token = data.token;
-            console.log('Token is ' + token);
             poll();
         }
     });
