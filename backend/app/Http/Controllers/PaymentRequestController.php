@@ -73,6 +73,11 @@ class PaymentRequestController extends Controller
         if ($token == null) return ['success' => 0];
 
         $token->success = 1;
+        if ($token->client_id) {
+            $token->client = Client::find($token->client_id);
+        } else {
+            $token->client = null;
+        }
         return $token;
     }
 
@@ -164,7 +169,7 @@ class PaymentRequestController extends Controller
         $pr = PaymentRequest::where('token', $request->get('token'))->first();
         $pr->client_id = Account::where('iban', $request->get('iban'))->first()->client->id;
         $pr->save();
-        $pr->client = Client::find($pr->client_id);
+        $pr->requester = Client::find($pr->requester_id);
         return $pr;
     }
 
