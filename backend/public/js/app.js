@@ -3,26 +3,25 @@ $(document).ready(function() {
 
     $('#checkout').click(function() {
         $.ajax({
-            url: 'http://213.187.246.84/api/payment-request',
+            url: '/api/payment-request',
             type: 'POST',
-            dataType: 'jsonp',
             data: {
                 "description": "Nike shoes",
                 "amount": 60.00,
                 "iban": "NL18INGB9771295162"
             },
             success: function(data) {
+                console.log(data);
                 $('#qrcode').qrcode(data.token);
-                poll();
+                // poll();
             }
         });
     });
 
     function poll() {
         $.ajax({
-            url: 'http://213.187.246.84/api/payment-request/',
+            url: '/api/payment-request/',
             type: 'GET',
-            dataType : 'jsonp',
             success : function(data) {
                 confirmed = data.confirmed;
                 if (confirmed === null) {
