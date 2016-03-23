@@ -107,7 +107,7 @@ class PaymentRequestController extends Controller
         $payrequest = PaymentRequest::where('token', $id)->first();
 
         if($payrequest == null) {
-            // TOOD: Upate for payrequest
+            // TOOD: Update for payrequest
             return ['confirm'=>false];
         }
 

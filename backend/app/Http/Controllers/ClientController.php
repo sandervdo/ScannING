@@ -40,7 +40,7 @@ class ClientController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'account' => 'required|exists:accounts,id',
+            'account_id' => 'required|exists:accounts,id',
             'avatar' => 'active_url'
         ]);
 
@@ -50,7 +50,7 @@ class ClientController extends Controller
 
         $client = Client::create([
             'name' => $request->get('name'),
-            'account' => $request->get('account'),
+            'account_id' => $request->get('account'),
             'avatar' => $request->get('avatar', ""),
         ]);
 
