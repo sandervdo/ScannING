@@ -15,8 +15,8 @@ class CreatePaymentRequestsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('account');
-            $table->foreign('account')->references('id')->on('accounts');
+            $table->unsignedInteger('account_id');
+            $table->foreign('account_id')->references('id')->on('accounts');
             $table->binary('avatar');
             $table->timestamps();
             $table->softDeletes();
@@ -26,8 +26,8 @@ class CreatePaymentRequestsTable extends Migration
             $table->increments('id');
             $table->string('description');
             $table->float('amount');
-            $table->unsignedInteger('requester');
-            $table->foreign('requester')->references('id')->on('clients');
+            $table->unsignedInteger('requester_id');
+            $table->foreign('requester_id')->references('id')->on('clients');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();
@@ -42,10 +42,10 @@ class CreatePaymentRequestsTable extends Migration
     public function down()
     {
         Schema::table('clients', function(Blueprint $table) {
-            $table->dropForeign('clients_account_foreign');
+            $table->dropForeign('clients_account_id_foreign');
         });
         Schema::table('payment_requests', function(Blueprint $table) {
-            $table->dropForeign('payment_requests_requester_foreign');
+            $table->dropForeign('payment_requests_requester_id_foreign');
         });
         Schema::drop('payment_requests');
         Schema::drop('clients');
