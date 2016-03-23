@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Client;
 use App\PaymentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -163,6 +164,7 @@ class PaymentRequestController extends Controller
         $pr = PaymentRequest::where('token', $request->get('token'))->first();
         $pr->client_id = Account::where('iban', $request->get('iban'))->first()->client->id;
         $pr->save();
+        $pr->client = Client::find($pr->client_id);
         return $pr;
     }
 
