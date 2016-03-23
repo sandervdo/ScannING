@@ -32,7 +32,7 @@ function checkoutClick() {
         data: {
             "description": "Nike shoes",
             "amount": 60.00,
-            "iban": "NL18INGB9771295162"
+            "iban": "NL50INGB3952895908"
         },
         success: function (data) {
             $('#qrcode').qrcode(data.token);
