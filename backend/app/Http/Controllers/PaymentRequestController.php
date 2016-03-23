@@ -69,10 +69,10 @@ class PaymentRequestController extends Controller
     public function show($id)
     {
         $token = PaymentRequest::where('token', $id)->first();
-        if($token == null) {
-            return ['success'=>0];
-        }
-        return ['success'=>1, $token];
+        if ($token == null) return ['success' => 0];
+
+        $token->success = 1;
+        return $token;
     }
 
     /**
@@ -146,6 +146,23 @@ class PaymentRequestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function payment(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required|exists:payment_requests,token',
+            'iban'  => 'required|max:34|exists:accounts,iban'
+        ]);
+
+        if ($validator->fails()) { return view('welcome')->with('errors', $validator->errors()); }
+
+        $pr = PaymentRequest::where('token', $request->get('token'));
+
+        return $pr;
     }
 
     private function generateToken()
