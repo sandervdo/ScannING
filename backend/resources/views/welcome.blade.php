@@ -59,7 +59,7 @@
                             </div>
                         </a>
                     </div>
-                    <button type="button" class="btn btn-info pull-right" id="checkout" name="button" onclick="checkoutClick()">Proceed to Checkout</button>
+                    <button type="button" class="btn btn-info btn-block" id="checkout" name="button" onclick="checkoutClick()"><i class="glyphicon glyphicon-shopping-cart"></i> Proceed to Checkout</button>
                 </div>
                 <div class="col-sm-6">
                     <div id="qrcode"></div>
