@@ -5,12 +5,11 @@ function poll() {
         url: '/api/payment-request/' + token,
         type: 'GET',
         success : function(data) {
-            var client_id = data.client_id;
-            console.log('client_id: ' + client_id + ' data.confirmed: ' + data.confirmed);
-            if (client_id == null) {
+            console.log('client_id: ' + data.client_id + ' data.confirmed: ' + data.confirmed);
+            if (data.client_id == null) {
                 console.log('Waiting');
                 setTimeout(poll, 1000);
-            } else if (client_id && data.confirmed == null) {
+            } else if (data.client_id && data.confirmed == null) {
                 $('#qrcode')[0].innerHTML =
                     '<div class="alert alert-warning">Awaiting approval. Please check your device.</div>' +
                     '<div><img src="'+(data.client.avatar != null ? data.client.avatar : 'http://wiseheartdesign.com/images/articles/default-avatar.png')+'"/><br/><span>'+data.client.name+'</span></div>';
