@@ -70,7 +70,6 @@ class PaymentRequestController extends Controller
     public function show($id)
     {
         $token = PaymentRequest::where('token', $id)->first();
-        dd($token);
         if ($token == null) return ['success' => 0];
 
         $token->success = 1;
