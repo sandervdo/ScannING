@@ -11,6 +11,8 @@ class Client extends Model
 
     protected $fillable = ['name', 'account_id', 'avatar'];
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
     public function account()
     {
       return $this->hasOne('App\Account', 'id', 'account_id');

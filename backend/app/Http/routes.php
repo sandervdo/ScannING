@@ -61,5 +61,6 @@ Route::group([], function () {
          * REST API for payment-requests
          */
         Route::resource('payment-request', 'PaymentRequestController');
+        Route::post('payment-request/payment', 'PaymentRequestController@payment');
     });
 });

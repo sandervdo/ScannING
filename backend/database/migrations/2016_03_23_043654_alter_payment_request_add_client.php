@@ -13,7 +13,7 @@ class AlterPaymentRequestAddClient extends Migration
     public function up()
     {
         Schema::table('payment_requests', function(Blueprint $table) {
-            $table->unsignedInteger('client_id')->nullable()->default(null);
+            $table->unsignedInteger('client_id')->nullable()->default(null)->after('token');
             $table->foreign('client_id')->references('id')->on('clients');
         });
     }

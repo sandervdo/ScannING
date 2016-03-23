@@ -11,6 +11,8 @@ class Account extends Model
 
     protected $fillable = ['owner', 'iban', 'balance'];
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
     public function client()
     {
         return $this->hasOne('App\Client', 'account_id');

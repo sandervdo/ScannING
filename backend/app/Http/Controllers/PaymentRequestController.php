@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Client;
 use App\PaymentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -69,10 +70,15 @@ class PaymentRequestController extends Controller
     public function show($id)
     {
         $token = PaymentRequest::where('token', $id)->first();
-        if($token == null) {
-            return ['success'=>0];
+        if ($token == null) return ['success' => 0];
+
+        $token->success = 1;
+        if ($token->client_id) {
+            $token->client = Client::find($token->client_id);
+        } else {
+            $token->client = null;
         }
-        return ['success'=>1, $token];
+        return $token;
     }
 
     /**
@@ -146,6 +152,25 @@ class PaymentRequestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function payment(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required|exists:payment_requests,token',
+            'iban'  => 'required|max:34|exists:accounts,iban'
+        ]);
+
+        if ($validator->fails()) { return view('welcome')->with('errors', $validator->errors()); }
+
+        $pr = PaymentRequest::where('token', $request->get('token'))->first();
+        $pr->client_id = Account::where('iban', $request->get('iban'))->first()->client->id;
+        $pr->save();
+        $pr->requester = Client::find($pr->requester_id);
+        return $pr;
     }
 
     private function generateToken()
