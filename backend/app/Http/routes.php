@@ -48,12 +48,17 @@ Route::group([], function () {
      */
     Route::group(['prefix' => '/api'], function () {
         /*
-         * 
+         * REST API for accounts
+         */
+        Route::resource('account', 'AccountController');
+
+        /*
+         * REST API for clients
          */
         Route::resource('client', 'ClientController');
 
         /*
-         *
+         * REST API for payment-requests
          */
         Route::resource('payment-request', 'PaymentRequestController');
     });

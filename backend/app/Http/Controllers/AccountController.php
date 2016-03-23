@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Account;
-use App\Client;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Validator;
 
-class ClientController extends Controller
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return 'Nee';
+        //
     }
 
     /**
@@ -26,9 +24,9 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        return 'Nee';
+        //
     }
 
     /**
@@ -39,23 +37,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'iban' => 'required|exists:accounts,iban',
-            'avatar' => 'active_url'
+        $validator = \Validator::make($request->all(), [
+            'owner'     => 'required',
+            'iban'      => 'required|max:34',
+            'balance'   => 'numeric',
         ]);
 
-        if ($validator->fails()) {
-            return view('welcome')->with('errors', $validator->errors());
-        }
+        if ($validator->fails()) return view('welcome')->with('errors', $validator->errors());
 
-        $client = Client::create([
-            'name' => $request->get('name'),
-            'account_id' => Account::where('iban', $request->get('iban'))->first()->id,
-            'avatar' => $request->get('avatar', ""),
+        $account = Account::create([
+            'owner'     => $request->get('owner'),
+            'iban'      => $request->get('iban'),
+            'balance'   => $request->get('balance', 0.00)
         ]);
 
-        return $client;
+        return $account;
     }
 
     /**
