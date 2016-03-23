@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAEA;EACI,kBAAkB,EACrB;;AAED;EACI,mBAAmB,EACtB","file":"app.css","sourcesContent":["// @import \"node_modules/bootstrap-sass/assets/stylesheets/bootstrap\";\n\nbody {\n    padding-top: 50px;\n}\n\n#qrcode {\n    text-align: center;\n}\n"],"sourceRoot":"/source/"}
