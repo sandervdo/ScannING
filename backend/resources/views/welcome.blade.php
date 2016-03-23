@@ -39,7 +39,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">ScannING</div>
                 @if(isset($errors) && count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
