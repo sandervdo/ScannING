@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		59913F977937F0624A0047F7 /* Pods_ScannING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5476E8BCDE2E2204E092128A /* Pods_ScannING.framework */; };
+		D582C3011CA1991E006A06B7 /* APIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C3001CA1991E006A06B7 /* APIConnector.swift */; };
+		D582C3031CA19A8D006A06B7 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C3021CA19A8D006A06B7 /* QRCodeViewController.swift */; };
+		D582C3051CA1AC0E006A06B7 /* QRCodeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C3041CA1AC0E006A06B7 /* QRCodeDisplay.swift */; };
+		D582C3071CA1C553006A06B7 /* TransactionSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C3061CA1C553006A06B7 /* TransactionSetupViewController.swift */; };
+		D582C3091CA1F1C7006A06B7 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C3081CA1F1C7006A06B7 /* ConfirmationViewController.swift */; };
+		D582C30D1CA1FC4D006A06B7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D582C30C1CA1FC4D006A06B7 /* SWRevealViewController.m */; };
+		D582C31A1CA1FF1F006A06B7 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C30F1CA1FF1F006A06B7 /* Lato-Black.ttf */; };
+		D582C31B1CA1FF1F006A06B7 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3101CA1FF1F006A06B7 /* Lato-BlackItalic.ttf */; };
+		D582C31C1CA1FF1F006A06B7 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3111CA1FF1F006A06B7 /* Lato-Bold.ttf */; };
+		D582C31D1CA1FF1F006A06B7 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3121CA1FF1F006A06B7 /* Lato-BoldItalic.ttf */; };
+		D582C31E1CA1FF1F006A06B7 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3131CA1FF1F006A06B7 /* Lato-Hairline.ttf */; };
+		D582C31F1CA1FF1F006A06B7 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3141CA1FF1F006A06B7 /* Lato-HairlineItalic.ttf */; };
+		D582C3201CA1FF1F006A06B7 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3151CA1FF1F006A06B7 /* Lato-Italic.ttf */; };
+		D582C3211CA1FF1F006A06B7 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3161CA1FF1F006A06B7 /* Lato-Light.ttf */; };
+		D582C3221CA1FF1F006A06B7 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3171CA1FF1F006A06B7 /* Lato-LightItalic.ttf */; };
+		D582C3231CA1FF1F006A06B7 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D582C3181CA1FF1F006A06B7 /* Lato-Regular.ttf */; };
+		D582C3241CA1FF1F006A06B7 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = D582C3191CA1FF1F006A06B7 /* OFL.txt */; };
+		D582C3261CA2364E006A06B7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C3251CA2364E006A06B7 /* WelcomeViewController.swift */; };
+		D582C32F1CA23CEE006A06B7 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582C32E1CA23CEE006A06B7 /* MenuTableViewController.swift */; };
 		D5EB79F11CA183280099570A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB79F01CA183280099570A /* AppDelegate.swift */; };
 		D5EB79F31CA183280099570A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EB79F21CA183280099570A /* ViewController.swift */; };
 		D5EB79F61CA183280099570A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5EB79F41CA183280099570A /* Main.storyboard */; };
@@ -18,6 +37,27 @@
 /* Begin PBXFileReference section */
 		38CA59822FB7444C7D389542 /* Pods-ScannING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannING.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScannING/Pods-ScannING.debug.xcconfig"; sourceTree = "<group>"; };
 		5476E8BCDE2E2204E092128A /* Pods_ScannING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D582C3001CA1991E006A06B7 /* APIConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConnector.swift; sourceTree = "<group>"; };
+		D582C3021CA19A8D006A06B7 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		D582C3041CA1AC0E006A06B7 /* QRCodeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDisplay.swift; sourceTree = "<group>"; };
+		D582C3061CA1C553006A06B7 /* TransactionSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionSetupViewController.swift; sourceTree = "<group>"; };
+		D582C3081CA1F1C7006A06B7 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		D582C30B1CA1FC4D006A06B7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D582C30C1CA1FC4D006A06B7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		D582C30F1CA1FF1F006A06B7 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		D582C3101CA1FF1F006A06B7 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		D582C3111CA1FF1F006A06B7 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		D582C3121CA1FF1F006A06B7 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D582C3131CA1FF1F006A06B7 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		D582C3141CA1FF1F006A06B7 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		D582C3151CA1FF1F006A06B7 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		D582C3161CA1FF1F006A06B7 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		D582C3171CA1FF1F006A06B7 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		D582C3181CA1FF1F006A06B7 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		D582C3191CA1FF1F006A06B7 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		D582C3251CA2364E006A06B7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D582C32D1CA23AAB006A06B7 /* ScannING-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScannING-Bridging-Header.h"; sourceTree = "<group>"; };
+		D582C32E1CA23CEE006A06B7 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		D5EB79ED1CA183280099570A /* ScannING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScannING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EB79F01CA183280099570A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5EB79F21CA183280099570A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +89,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D582C30A1CA1FC4D006A06B7 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D582C30B1CA1FC4D006A06B7 /* SWRevealViewController.h */,
+				D582C30C1CA1FC4D006A06B7 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		D582C30E1CA1FF1F006A06B7 /* Lato */ = {
+			isa = PBXGroup;
+			children = (
+				D582C30F1CA1FF1F006A06B7 /* Lato-Black.ttf */,
+				D582C3101CA1FF1F006A06B7 /* Lato-BlackItalic.ttf */,
+				D582C3111CA1FF1F006A06B7 /* Lato-Bold.ttf */,
+				D582C3121CA1FF1F006A06B7 /* Lato-BoldItalic.ttf */,
+				D582C3131CA1FF1F006A06B7 /* Lato-Hairline.ttf */,
+				D582C3141CA1FF1F006A06B7 /* Lato-HairlineItalic.ttf */,
+				D582C3151CA1FF1F006A06B7 /* Lato-Italic.ttf */,
+				D582C3161CA1FF1F006A06B7 /* Lato-Light.ttf */,
+				D582C3171CA1FF1F006A06B7 /* Lato-LightItalic.ttf */,
+				D582C3181CA1FF1F006A06B7 /* Lato-Regular.ttf */,
+				D582C3191CA1FF1F006A06B7 /* OFL.txt */,
+			);
+			path = Lato;
+			sourceTree = "<group>";
+		};
 		D5EB79E41CA183280099570A = {
 			isa = PBXGroup;
 			children = (
@@ -70,9 +137,19 @@
 		D5EB79EF1CA183280099570A /* ScannING */ = {
 			isa = PBXGroup;
 			children = (
+				D582C30E1CA1FF1F006A06B7 /* Lato */,
+				D582C30A1CA1FC4D006A06B7 /* SWRevealViewController */,
 				D5EB79F01CA183280099570A /* AppDelegate.swift */,
 				D5EB79F21CA183280099570A /* ViewController.swift */,
+				D582C3001CA1991E006A06B7 /* APIConnector.swift */,
+				D582C3251CA2364E006A06B7 /* WelcomeViewController.swift */,
+				D582C32E1CA23CEE006A06B7 /* MenuTableViewController.swift */,
 				D5EB79F41CA183280099570A /* Main.storyboard */,
+				D582C3021CA19A8D006A06B7 /* QRCodeViewController.swift */,
+				D582C3081CA1F1C7006A06B7 /* ConfirmationViewController.swift */,
+				D582C3061CA1C553006A06B7 /* TransactionSetupViewController.swift */,
+				D582C3041CA1AC0E006A06B7 /* QRCodeDisplay.swift */,
+				D582C32D1CA23AAB006A06B7 /* ScannING-Bridging-Header.h */,
 				D5EB79F71CA183280099570A /* Assets.xcassets */,
 				D5EB79F91CA183280099570A /* LaunchScreen.storyboard */,
 				D5EB79FC1CA183280099570A /* Info.plist */,
@@ -149,8 +226,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D582C3241CA1FF1F006A06B7 /* OFL.txt in Resources */,
+				D582C3201CA1FF1F006A06B7 /* Lato-Italic.ttf in Resources */,
+				D582C31A1CA1FF1F006A06B7 /* Lato-Black.ttf in Resources */,
+				D582C31C1CA1FF1F006A06B7 /* Lato-Bold.ttf in Resources */,
+				D582C3211CA1FF1F006A06B7 /* Lato-Light.ttf in Resources */,
 				D5EB79FB1CA183280099570A /* LaunchScreen.storyboard in Resources */,
+				D582C31B1CA1FF1F006A06B7 /* Lato-BlackItalic.ttf in Resources */,
 				D5EB79F81CA183280099570A /* Assets.xcassets in Resources */,
+				D582C3221CA1FF1F006A06B7 /* Lato-LightItalic.ttf in Resources */,
+				D582C31F1CA1FF1F006A06B7 /* Lato-HairlineItalic.ttf in Resources */,
+				D582C31D1CA1FF1F006A06B7 /* Lato-BoldItalic.ttf in Resources */,
+				D582C3231CA1FF1F006A06B7 /* Lato-Regular.ttf in Resources */,
+				D582C31E1CA1FF1F006A06B7 /* Lato-Hairline.ttf in Resources */,
 				D5EB79F61CA183280099570A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D582C3261CA2364E006A06B7 /* WelcomeViewController.swift in Sources */,
+				D582C3091CA1F1C7006A06B7 /* ConfirmationViewController.swift in Sources */,
+				D582C32F1CA23CEE006A06B7 /* MenuTableViewController.swift in Sources */,
+				D582C3011CA1991E006A06B7 /* APIConnector.swift in Sources */,
+				D582C3071CA1C553006A06B7 /* TransactionSetupViewController.swift in Sources */,
+				D582C30D1CA1FC4D006A06B7 /* SWRevealViewController.m in Sources */,
 				D5EB79F31CA183280099570A /* ViewController.swift in Sources */,
+				D582C3031CA19A8D006A06B7 /* QRCodeViewController.swift in Sources */,
+				D582C3051CA1AC0E006A06B7 /* QRCodeDisplay.swift in Sources */,
 				D5EB79F11CA183280099570A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +423,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.scanning.ScannING;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScannING/ScannING-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -339,6 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.scanning.ScannING;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScannING/ScannING-Bridging-Header.h";
 			};
 			name = Release;
 		};
